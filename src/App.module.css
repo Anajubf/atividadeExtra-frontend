@@ -1,0 +1,285 @@
+/* CONTAINER CENTRAL */
+.appLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0b0914; /* Fundo escuro oficial */
+}
+
+/* SIDEBAR LATERAL ESQUERDA */
+.sidebar {
+  width: 280px;
+  background-color: #0b0914;
+  border-right: 1px solid #131129;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  font-size: 1.8rem;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.logoSubtext {
+  font-size: 0.75rem;
+  color: #4e4973;
+  font-weight: 500;
+}
+
+/* NAVEGAÇÃO PRINCIPAL */
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sideBtn, .activeSideBtn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  color: #8f8aa8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.sideBtn:hover {
+  background-color: #131129;
+  color: #ffffff;
+}
+
+.activeSideBtn {
+  background-color: #1f1b40;
+  color: #a183ff;
+}
+
+.btnIcon {
+  font-size: 1.1rem;
+}
+
+/* FILTRO DE GÊNEROS */
+.genreSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #131129;
+  padding-top: 24px;
+}
+
+.genreHeading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #4e4973;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  padding-left: 16px;
+}
+
+.genreBtn, .activeGenreBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: #797399;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.genreBtn:hover {
+  background-color: #131129;
+  color: #ffffff;
+}
+
+.activeGenreBtn {
+  background-color: #1f1b40;
+  color: #ffffff;
+  box-shadow: inset 4px 0 0 #6d44fc; /* Tracinho indicador roxo */
+}
+
+.genreIcon {
+  font-size: 1rem;
+}
+
+/* ÁREA DA DIREITA (VIEWPORT) */
+.mainViewport {
+  flex: 1;
+  padding: 40px 60px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcomeText {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.welcomeSub {
+  font-size: 0.95rem;
+  color: #645f80;
+  margin-top: 4px;
+}
+
+.addBookBtn {
+  background-color: #6d44fc;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.addBookBtn:hover {
+  opacity: 0.9;
+}
+
+/* CARDS DE MÉTRICAS */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background-color: #131129;
+  border: 1px solid #1f1b40;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.statCard h3 {
+  font-size: 0.8rem;
+  color: #645f80;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statCard h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 4px 0;
+}
+
+.statCard p {
+  font-size: 0.75rem;
+  color: #4e4973;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.iconPurple { background: rgba(109, 68, 252, 0.15); color: #6d44fc; }
+.iconGreen  { background: rgba(46, 186, 114, 0.15); color: #2eba72; }
+.iconOrange { background: rgba(252, 166, 33, 0.15); color: #fca621; }
+.iconPink   { background: rgba(255, 74, 147, 0.15); color: #ff4a93; }
+
+/* ABAS DE SELEÇÃO INTERNAS */
+.innerTabsBar {
+  border-bottom: 1px solid #131129;
+  padding-bottom: 12px;
+}
+
+.tabsGroup {
+  display: flex;
+  gap: 24px;
+}
+
+.tabBtn, .activeTab {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4e4973;
+  cursor: pointer;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.tabBtn:hover {
+  color: #ffffff;
+}
+
+.activeTab {
+  color: #ffffff;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #6d44fc;
+}
+
+/* GRADE DOS CARDS DE LIVROS */
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colunas lindas em telas grandes */
+  gap: 24px;
+}
+
+.statusMessage {
+  grid-column: span 5;
+  text-align: center;
+  color: #4e4973;
+  padding: 40px 0;
+  font-weight: 600;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1200px) {
+  .booksGrid { grid-template-columns: repeat(3, 1fr); }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
