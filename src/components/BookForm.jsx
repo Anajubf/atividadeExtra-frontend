@@ -5,10 +5,10 @@ export default function BookForm({ onAddBook }) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [coverUrl, setCoverUrl] = useState('');
-    const [genre, setGenre] = useState('Romance'); // Padrão inicial
+    const [genre, setGenre] = useState('Romance');
     const [status, setStatus] = useState('To-Read');
     const [rating, setRating] = useState(5);
-    const [favorite, setFavorite] = useState(false);
+    const [favorite, setFavorite] = useState(false); // Armazena true ou false
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,7 +18,7 @@ export default function BookForm({ onAddBook }) {
             return;
         }
 
-        // Envia os dados estruturados para a função handleAddBook no App.jsx
+        // Passa o objeto estruturado perfeitamente para a função handleAddBook do App.jsx
         onAddBook({
             title,
             author,
@@ -26,10 +26,10 @@ export default function BookForm({ onAddBook }) {
             genre,
             status,
             rating: Number(rating),
-            favorite,
+            favorite: favorite, // Nome idêntico ao esperado na coluna do banco
         });
 
-        // Limpa o formulário após o envio
+        // Reseta o formulário
         setTitle('');
         setAuthor('');
         setCoverUrl('');
@@ -100,15 +100,16 @@ export default function BookForm({ onAddBook }) {
             </div>
 
             <div className={styles.footerRow}>
-                <label className={styles.checkboxLabel}>
-                    <input
-                        type="checkbox"
-                        checked={favorite}
-                        onChange={(e) => setFavorite(e.target.checked)}
-                        className={styles.checkbox}
-                    />
-                    <span>Marcar como Favorito 💜</span>
-                </label>
+                <div className={styles.selectFavoriteGroup}>
+                    <span className={styles.favoriteLabel}>Favoritar?</span>
+                    <select
+                        value={favorite ? "true" : "false"}
+                        onChange={(e) => setFavorite(e.target.value === "true")}
+                        className={styles.select}>
+                        <option value="false">Não 🤍</option>
+                        <option value="true">Sim 💜</option>
+                    </select>
+                </div>
 
                 <button type="submit" className={styles.submitBtn}>
                     Salvar na Estante

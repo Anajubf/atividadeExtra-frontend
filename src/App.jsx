@@ -48,14 +48,14 @@ export default function App() {
                     bg: bookData.bg || '#1e1b2e',
                     status: bookData.status || 'To-Read',
                     genre: bookData.genre || 'Geral',
-                    favorite: bookData.favorite || false,
+                    favorite: Boolean(bookData.favorite), // Garante o envio do booleano correto
                 },
             ]);
 
             if (error) throw error;
 
             setShowForm(false);
-            fetchBooks();
+            fetchBooks(); // Recarrega a lista para mostrar o novo livro
         } catch (err) {
             console.error('❌ Erro ao adicionar livro:', err.message);
             alert('Erro ao salvar: ' + err.message);
@@ -131,12 +131,15 @@ export default function App() {
                                 ? appStyles.activeSideBtn
                                 : appStyles.sideBtn
                         }
-                        onClick={() => setCurrentFilter('favorites')}>
+                        onClick={() => {
+                            setCurrentFilter('favorites');
+                            setSelectedGenre('all'); // Limpa o gênero para listar todos os favoritos salvos
+                        }}>
                         <span className={appStyles.btnIcon}>💜</span> Favoritos
                     </button>
                 </nav>
 
-                {/* SESSÃO DE GÊNEROS TOTALMENTE INTERATIVA */}
+                {/* SESSÃO DE GÊNEROS */}
                 <div className={appStyles.genreSection}>
                     <p className={appStyles.genreHeading}>GÊNEROS</p>
                     {[
@@ -211,7 +214,7 @@ export default function App() {
                     </div>
                 </section>
 
-                {/* FILTROS INTERNOS */}
+                {/* ABAS INTERNAS DE SELEÇÃO */}
                 <div className={appStyles.innerTabsBar}>
                     <div className={appStyles.tabsGroup}>
                         <button
@@ -241,7 +244,10 @@ export default function App() {
                                     ? appStyles.activeTab
                                     : appStyles.tabBtn
                             }
-                            onClick={() => setCurrentFilter('favorites')}>
+                            onClick={() => {
+                                setCurrentFilter('favorites');
+                                setSelectedGenre('all');
+                            }}>
                             Favoritos
                         </button>
                     </div>
